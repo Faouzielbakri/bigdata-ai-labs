@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3 and Tailwind Lab</title>
+    <!-- TailwindCSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen relative">
+
+    <!-- Map related Lab -->
+    <div id="map" class="w-full h-full absolute top-0 left-0 z-10"></div>
+    <div class="tooltip"></div>
+
+    <!-- Container for D3 Visualization -->
+    <div id="chart-container" class="bg-white shadow p-6 rounded"></div>
+
+    <!-- Button container with higher z-index to stay on top -->
+    <div class="absolute gap-2 flex items-center justify-center top-5 left-1/2 -translate-y-full px-2 py-2 bg-white shadow rounded z-50">
+        <span id="map-btn" data-active="true" class="flex-1 whitespace-nowrap rounded px-2 py-1 text-white cursor-pointer">Map - Lab1</span>
+        <span id="boxplot-btn" data-active="false" class="flex-1 whitespace-nowrap rounded px-2 py-1 text-white cursor-pointer">Box Plot</span>
+    </div>
+
+    <!-- D3.js CDN -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="js/boxplot.js"></script>
+    <script src="js/script.js"></script>
+
+
+    <script>
+        
+
+        // Button elements
+        const mapBtn = document.getElementById("map-btn");
+        const boxplotBtn = document.getElementById("boxplot-btn");
+
+        // Container elements
+        const mapContainer = document.getElementById("map");
+        const chartContainer = document.getElementById("chart-container");
+
+        // Function to toggle data-active attribute and apply styles
+        function toggleActiveButton(activeButton, inactiveButton) {
+            activeButton.setAttribute("data-active", "true");
+            inactiveButton.setAttribute("data-active", "false");
+
+            // Update styles based on data-active attribute
+            document.querySelectorAll('[data-active="true"]').forEach(el => {
+                el.classList.remove("bg-green-200");
+                el.classList.add("bg-green-500");
+            });
+            document.querySelectorAll('[data-active="false"]').forEach(el => {
+                el.classList.remove("bg-green-500");
+                el.classList.add("bg-green-200");
+            });
+        }
+
+        // Event listeners for toggling between map and box plot
+        mapBtn.addEventListener("click", function () {
+            mapContainer.classList.remove("hidden");
+            chartContainer.classList.add("hidden");
+            toggleActiveButton(mapBtn, boxplotBtn); // Set map button as active
+        });
+
+        boxplotBtn.addEventListener("click", function () {
+            chartContainer.classList.remove("hidden");
+            mapContainer.classList.add("hidden");
+            toggleActiveButton(boxplotBtn, mapBtn); // Set box plot button as active
+        });
+
+        // Initialize with map view
+        mapBtn.click();
+    </script>
+</body>
+</html>
