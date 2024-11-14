@@ -10,8 +10,6 @@ Welcome to the **Big Data and Artificial Intelligence Labs** repository! This re
 - [Labs](#labs)
 - [Setup](#setup)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ---
 
