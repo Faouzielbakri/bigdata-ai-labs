@@ -25,7 +25,7 @@ Each lab can be accessed by navigating to its URL:
 
 | Lab Number | Description                        | GitHub Pages URL                                              |
 | ---------- | ---------------------------------- | ------------------------------------------------------------- |
-| Lab 1      | Introduction to Data Visualization | [Lab 1](https://faouzielbakri.github.io/bigdata-ai-labs/lab1) |
+| Lab 1      | Introduction to Data Visualization | [Lab 1](https://faouzielbakri.github.io/bigdata-ai-labs/Lab1) |
 | Lab 2      | Not yet                            | Not yet                                                       |
 | Lab 3      | Not yet                            | Not yet                                                       |
 | Lab 4      | Not yet                            | Not yet                                                       |
