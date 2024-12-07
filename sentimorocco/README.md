@@ -1,34 +1,29 @@
 # SentiMorocco Dashboard
 
-SentiMorocco is a sentiment analysis dashboard designed to analyze user comments from **HESPRESS.com**, providing real-time insights into public opinion through sentiment trends, engagement metrics, and sentiment breakdowns. The app connects to **Elasticsearch** and **Kafka** Docker containers for real-time data integration, while the Next.js framework powers its frontend and backend.
+SentiMorocco is a sentiment analysis dashboard designed to provide insights into user comments from **HESPRESS.com**, analyzing trends, engagement metrics, and sentiment breakdowns. Built with **Next.js**, the app connects to **Elasticsearch** and **Kafka** Docker containers for real-time data processing and visualization.
 
 ---
 
 ## Features
 
-### **Dashboard Overview**
+### **Sentiment Analysis**
 
-- Total comments analyzed, with percentage growth from previous periods.
-- Sentiment distribution across **positive**, **neutral**, and **negative** classes.
-- Recent comments categorized by sentiment, user engagement (likes), and timestamps.
+- Analyze the sentiment distribution for **positive**, **neutral**, and **negative** comments.
+- Visualize sentiment trends over time with interactive charts.
 
-### **Analytics Feed**
+### **Engagement Insights**
 
-- Analyze sentiment for specific articles by entering a URL or article title.
-- Visual breakdown of:
-  - Sentiment trends over time.
-  - Top keywords from comments.
-  - Engagement metrics (likes, comments).
+- Track top-performing articles and comments based on engagement (likes, comments).
+- Fetch detailed analytics for individual articles or categories.
 
-### **Trends**
+### **Keyword Analysis**
 
-- Historical sentiment trends visualized through line charts (monthly or yearly views).
-- Top articles ranked by engagement and sentiment distribution.
+- Identify trending keywords from user comments.
+- Generate word clouds for top phrases.
 
-### **Model Insights**
+### **Real-Time Scraping**
 
-- Displays model performance metrics such as accuracy and F1-scores.
-- Highlights class-specific challenges (e.g., struggles with neutral sentiment).
+- Scrape live articles and comments from HESPRESS.com for real-time analysis.
 
 ---
 
@@ -36,8 +31,9 @@ SentiMorocco is a sentiment analysis dashboard designed to analyze user comments
 
 ### **Prerequisites**
 
-- Install **Node.js** and **npm** (or yarn).
-- Install **Docker** to run Kafka and Elasticsearch containers.
+- **Node.js** (v18+ recommended)
+- **npm** or **yarn**
+- **Docker** to run Kafka and Elasticsearch
 
 ### **Installation**
 
@@ -56,16 +52,12 @@ SentiMorocco is a sentiment analysis dashboard designed to analyze user comments
 
 3. Start Docker containers for Kafka and Elasticsearch:
 
-   - Navigate to the Docker setup directory and start containers:
-     ```bash
-     docker-compose up
-     ```
-   - This will spin up:
-     - **Elasticsearch**: Used for querying processed sentiment data.
-     - **Kafka**: Handles real-time comment ingestion.
+   ```bash
+   docker-compose up
+   ```
 
 4. Configure `.env.local`:
-   Create a `.env.local` file in the root of your project and add:
+   Create a `.env.local` file in the root directory:
 
    ```env
    ELASTICSEARCH_URL=http://localhost:9200
@@ -83,81 +75,54 @@ SentiMorocco is a sentiment analysis dashboard designed to analyze user comments
 
 ---
 
-## API Routes
+## API Overview
 
-Next.js API routes located in `pages/api` connect the frontend to Kafka and Elasticsearch containers. Key API routes include:
+The app includes RESTful API routes to power the dashboard, such as:
 
-- **GET /api/sentiments**
-  - Retrieves sentiment breakdown for a specific article or time range.
-- **GET /api/trends**
-  - Fetches sentiment trends over time.
-- **POST /api/comments**
-  - Submits new comments for real-time analysis.
+- **Article Analytics**
+  - `GET /api/article`: Fetch sentiment breakdown for specific articles.
+- **Engagement Insights**
 
----
+  - `GET /api/engagement/articles`: Retrieve engagement metrics for articles.
 
-## Dependencies
+- **Sentiment Trends**
 
-### Core Frameworks and Libraries:
+  - `GET /api/sentiment/trends`: Fetch historical sentiment trends.
 
-- **Next.js**: Framework for frontend and backend integration.
-- **KafkaJS**: Used to connect the API routes to Kafka for real-time data ingestion.
-- **Elasticsearch Client**: Queries Elasticsearch to fetch pre-processed sentiment data.
-- **TailwindCSS**: Responsive styling for UI components.
-
-### Data Integrations:
-
-- **Elasticsearch**: Stores processed comment data for fast analytics and querying.
-- **Kafka**: Powers real-time data ingestion pipelines.
+- **Real-Time Scraping**
+  - `POST /api/scrape`: Trigger real-time scraping of articles and comments.
 
 ---
 
-## Project Structure
+## Project Highlights
 
-The application is structured as follows:
+1. **Frontend**:
 
-```
-├── components
-│   ├── Dashboard.js          # Main dashboard component
-│   ├── SentimentTrends.js    # Visualizations for trends
-│   └── ArticleAnalytics.js   # Analytics feed component
-├── pages
-│   ├── index.js              # Main dashboard page
-│   ├── api                   # API routes to connect Kafka and Elasticsearch
-│   │   ├── sentiments.js
-│   │   └── trends.js
-├── public
-│   ├── images                # Static assets
-└── utils
-    ├── elasticClient.js      # Elasticsearch configuration
-    ├── kafkaClient.js        # Kafka client setup
-```
+   - Built with **Next.js** using the App Router.
+   - Dynamic pages for article-level analytics, sentiment trends, and engagement insights.
+   - Styled with **TailwindCSS** for responsiveness.
 
----
+2. **Backend**:
 
-## Usage Instructions
+   - API routes handle data queries, scraping, and predictions.
+   - Integration with **Elasticsearch** for fast querying and real-time insights.
+   - Kafka consumers enable real-time comment ingestion.
 
-1. **Search for Articles**:
-
-   - Enter an article URL or title to retrieve its sentiment breakdown and engagement data.
-
-2. **Explore Trends**:
-
-   - View sentiment trends across months, including top-performing articles.
-
-3. **Monitor Model Insights**:
-   - Access details about the model's accuracy, precision, recall, and F1-scores for each sentiment class.
+3. **Key Components**:
+   - Interactive charts for sentiment trends and engagement metrics.
+   - Real-time search for articles and comments.
+   - Custom UI elements for navigation, filtering, and displaying analytics.
 
 ---
 
 ## Contribution Guidelines
 
-Contributions are welcome! To contribute:
+Contributions are welcome! Follow these steps to contribute:
 
 1. Fork this repository.
 2. Create a new branch: `git checkout -b feature-name`.
 3. Commit your changes: `git commit -m "Add feature"`.
-4. Push to your branch: `git push origin feature-name`.
+4. Push your branch: `git push origin feature-name`.
 5. Open a pull request.
 
 ---
@@ -166,22 +131,15 @@ Contributions are welcome! To contribute:
 
 ### **Dashboard Overview**
 
-![Dashboard Overview](hespress-dashboard.jpg)
+![Dashboard Overview](screenshots/dashboard-overview.png)
 
 ### **Article Analytics**
 
-![Article Analytics](hespress-article.jpg)
+![Article Analytics](screenshots/article-analytics.png)
 
 ### **Sentiment Trends**
 
-![Sentiment Trends](hespress-top.jpg)
-
----
-
-## Known Issues
-
-- Neutral class struggles with misclassification due to overlapping features with negative and positive sentiments.
-- Some API calls may require rate-limiting optimizations for high-traffic scenarios.
+![Sentiment Trends](screenshots/sentiment-trends.png)
 
 ---
 
