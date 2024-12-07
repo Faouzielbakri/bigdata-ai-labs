@@ -131,15 +131,15 @@ Contributions are welcome! Follow these steps to contribute:
 
 ### **Dashboard Overview**
 
-![Dashboard Overview](screenshots/dashboard-overview.png)
+![Dashboard Overview](screenshots/dashboard-overview.jpg)
 
 ### **Article Analytics**
 
-![Article Analytics](screenshots/article-analytics.png)
+![Article Analytics](screenshots/article-analytics.jpg)
 
 ### **Sentiment Trends**
 
-![Sentiment Trends](screenshots/sentiment-trends.png)
+![Sentiment Trends](screenshots/sentiment-trends.jpg)
 
 ---
 
