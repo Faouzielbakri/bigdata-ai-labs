@@ -4,6 +4,10 @@ SentiMorocco is a sentiment analysis dashboard designed to provide insights into
 
 ---
 
+### **Big Data Architecture **
+
+![Dashboard Overview](screenshots/bigdata-architecture.png)
+
 ## Features
 
 ### **Sentiment Analysis**
