@@ -23,12 +23,12 @@ Each lab is self-contained with its own HTML, CSS, and JavaScript files, and can
 
 Each lab can be accessed by navigating to its URL:
 
-| Lab Number | Description                                              | GitHub Pages URL                                                           |
-| ---------- | -------------------------------------------------------- | -------------------------------------------------------------------------- |
-| Lab 1      | Introduction to Data Visualization                       | [Lab 1](https://faouzielbakri.github.io/bigdata-ai-labs/Lab1)              |
-| Lab 2      | Bigdata Architicture For for ai traning on user comments | [Workshop 1](https://faouzielbakri.github.io/bigdata-ai-labs/sentimorocco) |
-| Lab 3      | Not yet                                                  | Not yet                                                                    |
-| Lab 4      | Not yet                                                  | Not yet                                                                    |
+| Lab Number       | Description                                              | GitHub Pages URL                                                                      |
+| ---------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Lab 1            | Introduction to Data Visualization                       | [Lab 1](https://faouzielbakri.github.io/bigdata-ai-labs/Lab1)                         |
+| Lab 2/Workshop 1 | Bigdata Architicture For for ai traning on user comments | [Workshop 1](https://github.com/Faouzielbakri/bigdata-ai-labs/tree/main/sentimorocco) |
+| Lab 3            | Not yet                                                  | Not yet                                                                               |
+| Lab 4            | Not yet                                                  | Not yet                                                                               |
 
 > **Note**: Each lab link will take you to a specific page for that lab on GitHub Pages.
 
